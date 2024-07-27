@@ -1,14 +1,13 @@
-<template>
+<template> 
   <div class="flex flex-col">
-    <a-layout-header class="layout-navbar">
+    <a-layout style="height: 100vh;">
+      <a-layout-header class="layout-navbar">
       <Navbar />
     </a-layout-header>
-
-    <a-layout class="overflow-x-hidden flex-1">
-      <a-layout-content class="layoutContent h-full">
-        <Menu></Menu>
+    <a-layout-content class="layoutContent h-full" style="background-color: #dfdfdf;">
+    <Menu></Menu>
         <div class="h-full p-2 box-border">
-          <slot></slot>
+          <slot></slot >
         </div>
       </a-layout-content>
     </a-layout>
@@ -19,3 +18,6 @@
 import Navbar from './navbar.vue';
 import Menu from './menu.vue';
 </script>
+<style>
+
+</style>

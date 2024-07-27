@@ -1,9 +1,10 @@
 <template>
-  <div class="navbar">
-    <div class="left-slide">
+  <div class="navbar" style="background-color: black;">
+    <div class="left-slide" >
       <a-space>
- 
-        <a-typography-title :style="{ margin: 0, fontSize: '18px' }" :heading="5"> 天机监控系统 </a-typography-title>
+        <a-typography-title style="color: white;" :style="{ margin: 0, fontSize: '18px'}" :heading="5"> 
+          天机监控系统 
+        </a-typography-title>
       </a-space>
     </div>
 
@@ -22,9 +23,7 @@
       <li>
         <a-tooltip content="github">
           <a-button shape="circle" type="outline" class="nav-btn">
-            <template #icon>
-              <icon-gitlab />
-            </template>
+           <span style="color: white; font-size: 8px;" >github</span>
           </a-button>
         </a-tooltip>
       </li>
@@ -32,9 +31,7 @@
       <li>
         <a-tooltip content="refresh">
           <a-button shape="circle" type="outline" class="nav-btn">
-            <template #icon>
-              <icon-refresh />
-            </template>
+            <span style="color: white; font-size: 8px;" >refresh</span>
           </a-button>
         </a-tooltip>
       </li>
@@ -42,9 +39,7 @@
       <li>
         <a-tooltip content="search">
           <a-button shape="circle" type="outline" class="nav-btn">
-            <template #icon>
-              <icon-search />
-            </template>
+            <span style="color: white; font-size: 8px;" >search</span>
           </a-button>
         </a-tooltip>
       </li>
@@ -52,9 +47,8 @@
       <li>
         <a-tooltip content="theme">
           <a-button shape="circle" type="outline" class="nav-btn">
-            <template #icon>
-              <icon-sun-fill />
-            </template>
+            <span style="color: white; font-size: 8px;" >theme</span>
+
           </a-button>
         </a-tooltip>
       </li>
@@ -62,9 +56,7 @@
       <li>
         <a-tooltip content="language">
           <a-button shape="circle" type="outline" class="nav-btn" @click="setDropDownVisible">
-            <template #icon>
-              <icon-language />
-            </template>
+            <span style="color: white; font-size: 8px;" >language</span>
           </a-button>
         </a-tooltip>
       </li>
@@ -72,11 +64,7 @@
       <li>
         <a-dropdown trigger="click">
           <a-button shape="circle" type="outline" class="nav-btn">
-            <template #icon>
-              <a-avatar :size="32">
-                <img alt="avatar" src="http://localhost:8000/image-server/IMG_3578.JPG" width="32px" height="32px"/>
-              </a-avatar>
-            </template>
+            <span style="color: white;">cxl</span>
           </a-button>
           <template #content>
             <a-doption>退出登录</a-doption>
@@ -88,6 +76,7 @@
 </template>
 
 <script lang="ts" setup>
+import type { ColorPicker } from '@arco-design/web-vue';
 import { computed, ref, watchEffect } from 'vue'
 
 
@@ -124,16 +113,19 @@ const setDropDownVisible = () => {
 }
 
 .right-slide {
+  margin-right: 2vh;
   padding-right: 20px;
   display: flex;
   list-style: none;
-
+  background-color: #c9cdd4;
+  border-radius: 20vh;
   li {
     display: flex;
     align-items: center;
     padding: 0 10px;
 
     .nav-btn {
+      background-color: #596464;
       border-color: rgb(var(--gray-2)) !important;
       color: rgb(var(--gray-8)) !important;
       font-size: 16px;

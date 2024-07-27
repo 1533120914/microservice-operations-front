@@ -1,34 +1,46 @@
 <template>
-  <div class="p-[20px] menu-demo">
+  <div class="p-[20px] menu-demo" >
     <a-menu mode="pop" showCollapseButton>
       <a-menu-item key="1">
         <template #icon>
           <icon-apps></icon-apps>
         </template>
-        Nuxt
+        服务器管理
       </a-menu-item>
 
       <a-menu-item key="2">
         <template #icon>
           <icon-apps></icon-apps>
         </template>
-        Next
+        服务器性能监控
       </a-menu-item>
 
       <a-menu-item key="3">
         <template #icon>
           <icon-apps></icon-apps>
         </template>
-        Vue
+        docker监控
       </a-menu-item>
 
       <a-menu-item key="4">
         <template #icon>
           <icon-apps></icon-apps>
         </template>
-        React
+       redis监控
+      </a-menu-item>
+      <a-menu-item key="5">
+        <template #icon>
+          <icon-apps></icon-apps>
+        </template>     
+      </a-menu-item>
+         <a-menu-item key="6">
+        <template #icon>
+          <icon-apps></icon-apps>
+        </template>
+       服务器位置监控
       </a-menu-item>
     </a-menu>
+    
   </div>
 </template>
 
@@ -51,18 +63,22 @@
 }
 
 .menu-demo .arco-menu :deep(.arco-menu-collapse-button) {
+  background-color: #b4c3e7;
+
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
   
 .menu-demo .arco-menu:not(.arco-menu-collapsed) :deep(.arco-menu-collapse-button) {
+
   right: 0;
   bottom: 8px;
   transform: translateX(50%);
 }
 
 .menu-demo .arco-menu:not(.arco-menu-collapsed)::before {
+  
   content: '';
   position: absolute;
   right: 0;
