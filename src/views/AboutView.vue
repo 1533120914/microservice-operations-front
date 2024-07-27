@@ -2,14 +2,8 @@
   <div class="about">
     <h1>This is an about page</h1>
   </div>
+  <div>
+    <span>22222222222</span>
+  </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script setup lang="ts"></script>
