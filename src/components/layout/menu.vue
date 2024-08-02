@@ -1,106 +1,122 @@
 <template>
-  <div class="p-[20px] menu-demo" >
-    <a-menu mode="pop" showCollapseButton>
-      <a-menu-item key="1">
-        <template #icon>
-          <icon-apps></icon-apps>
-        </template>
-        服务器管理
-      </a-menu-item>
-
-      <a-menu-item key="2">
-        <template #icon>
-          <icon-apps></icon-apps>
-        </template>
-        服务器性能监控
-      </a-menu-item>
-
-      <a-menu-item key="3">
-        <template #icon>
-          <icon-apps></icon-apps>
-        </template>
-        docker监控
-      </a-menu-item>
-
-      <a-menu-item key="4">
-        <template #icon>
-          <icon-apps></icon-apps>
-        </template>
-       redis监控
-      </a-menu-item>
-      <a-menu-item key="5">
-        <template #icon>
-          <icon-apps></icon-apps>
-        </template>     
-      </a-menu-item>
-         <a-menu-item key="6">
-        <template #icon>
-          <icon-apps></icon-apps>
-        </template>
-       服务器位置监控
-      </a-menu-item>
-    </a-menu>
-    
-  </div>
+  <a-layout class="layout-demo" style="height: 92vh;">
+    <a-layout-sider collapsible breakpoint="xl">
+      <div class="logo" />
+      <a-menu
+        :default-open-keys="['1']"
+        :default-selected-keys="['0_3']"
+        :style="{ width: '100%' }"
+        @menu-item-click="onClickMenuItem"
+      >
+        <a-menu-item key="0_1" >
+          <IconHome></IconHome>
+          服务器监控
+        </a-menu-item>
+        <a-menu-item key="0_2">
+          <IconCalendar></IconCalendar>
+          docker监控
+        </a-menu-item>
+        <a-menu-item key="0_3">
+          <IconCalendar></IconCalendar>
+          redis监控
+        </a-menu-item>
+        <a-sub-menu key="1">
+          <template #title>
+            <IconCalendar></IconCalendar> 服务器检测
+          </template>
+          <a-menu-item key="1_1">ping检测</a-menu-item>
+          <a-menu-item key="1_2">日志检测</a-menu-item>
+        </a-sub-menu>
+        <a-menu-item key="0_4">
+            <IconCalendar></IconCalendar> 待开发
+        </a-menu-item>
+      </a-menu>
+      <!-- trigger -->
+      <template #trigger="{ collapsed }">
+        <IconCaretRight v-if="collapsed"></IconCaretRight>
+        <IconCaretLeft v-else></IconCaretLeft>
+      </template>
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header style="padding-left: 20px;">
+        Header
+      </a-layout-header >
+      <a-layout style="padding: 0 24px;">
+        <a-breadcrumb :style="{ margin: '16px 0' }">
+          <a-breadcrumb-item>Home</a-breadcrumb-item>
+          <a-breadcrumb-item>List</a-breadcrumb-item>
+          <a-breadcrumb-item>App</a-breadcrumb-item>
+        </a-breadcrumb>
+        <a-layout-content>Content</a-layout-content>
+        <a-layout-footer>Footer</a-layout-footer>
+      </a-layout>
+    </a-layout>
+  </a-layout>
 </template>
+<script>
+import { defineComponent } from 'vue';
+import { Message} from '@arco-design/web-vue';
+import {
+  IconCaretRight,
+  IconCaretLeft,
+  IconHome,
+  IconCalendar,
+} from '@arco-design/web-vue/es/icon';
 
-<script setup lang="ts">
-
+export default defineComponent({
+  components: {
+    IconCaretRight,
+    IconCaretLeft,
+    IconHome,
+    IconCalendar,
+  },
+  methods: {
+    onClickMenuItem(key) {
+      Message.info({ content: `You select ${key}`, showIcon: true });
+    }
+  }
+});
 </script>
-
 <style scoped>
-.menu-demo {
-  position: fixed;
-  z-index: 2;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.menu-demo .arco-menu {
-  width: 200px;
+.layout-demo {
   height: 500px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  background: var(--color-fill-2);
+  border: 1px solid var(--color-border);
 }
-
-.menu-demo .arco-menu :deep(.arco-menu-collapse-button) {
-  background-color: #b4c3e7;
-
-  width: 32px;
+.layout-demo :deep(.arco-layout-sider) .logo {
   height: 32px;
-  border-radius: 50%;
+  margin: 12px 8px;
+  background: rgba(255, 255, 255, 0.2);
 }
-  
-.menu-demo .arco-menu:not(.arco-menu-collapsed) :deep(.arco-menu-collapse-button) {
-
-  right: 0;
-  bottom: 8px;
-  transform: translateX(50%);
+.layout-demo :deep(.arco-layout-sider-light) .logo{
+  background: var(--color-fill-2);
 }
-
-.menu-demo .arco-menu:not(.arco-menu-collapsed)::before {
-  
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 48px;
+.layout-demo :deep(.arco-layout-header)  {
+  height: 64px;
+  line-height: 64px;
+  background: var(--color-bg-3);
+}
+.layout-demo :deep(.arco-layout-footer) {
   height: 48px;
-  background-color: inherit;
-  border-radius: 50%;
-  box-shadow: -4px 0 2px var(--color-bg-2), 0 0 1px rgba(0, 0, 0, 0.3);
-  transform: translateX(50%);
+  color: var(--color-text-2);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 48px;
 }
-
-.menu-demo .arco-menu.arco-menu-collapsed {
-  width: 48px;
-  height: auto;
-  padding-top: 24px;
-  padding-bottom: 138px;
-  border-radius: 22px;
+.layout-demo :deep(.arco-layout-content) {
+  color: var(--color-text-2);
+  font-weight: 400;
+  font-size: 14px;
+  background: var(--color-bg-3);
 }
-
-.menu-demo .arco-menu.arco-menu-collapsed :deep(.arco-menu-collapse-button) {
-  right: 8px;
-  bottom: 8px;
+.layout-demo :deep(.arco-layout-footer),
+.layout-demo :deep(.arco-layout-content)  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 16px;
+  font-stretch: condensed;
+  text-align: center;
 }
 </style>
