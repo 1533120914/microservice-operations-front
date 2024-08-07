@@ -25,7 +25,7 @@
         <a-form-item
           field="account"
           label="账号"
-          class="account"
+          class="account"`
           :validate-status="status"
           feedback
         >
