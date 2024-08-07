@@ -3,7 +3,6 @@
     <div class="title">
       <a-image
         class="title-image"
-        style="display: flex"
         src="src\components\icons\tianji.png"
       />
     </div>
@@ -22,7 +21,7 @@
           <a-radio value="large">large</a-radio>
         </a-radio-group>
       </a-space>
-      <a-form class="my-form" :model="form" :size="size">
+      <a-form class="login-form" :model="form" :size="size">
         <a-form-item
           field="account"
           label="账号"
@@ -126,24 +125,25 @@ const form = reactive({
 <style>
 .bord {
   /* 弹跳动画 */
-  animation: bounce 1.5s ease;
+  animation: bounce 1s ease;
   background-color: white;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* 添加阴影 */
   border-radius: 2vh;
-  width: 50%;
+  width: 40%;
   height: 50%;
   display: flex;
   flex-direction: column; /* 垂直方向排列 */
 }
 
 .title {
-  width: 100%;
+  margin-left: 30px;
+  margin-top: 30px;
   display: flex;
   justify-content: left;
   align-items: center;
   color: white;
   width: 100%;
-  height: 15%;
+  height: 10%;
   font-size: 1.5em; /* 适当调整字体大小 */
 }
 
@@ -157,16 +157,15 @@ const form = reactive({
   box-sizing: border-box;
 }
 
-.my-form {
+.login-form {
   display: flex;
-  align-items: center;
-  width:60%;
+  width: 50%;
   margin-bottom: 5%;
 }
+
 .title-image {
-  margin-left: 5%;
-  margin-top: 5%;
-  height: "70%";
+  display: flex;
+  height: "100%";
   width: "50%";
   align-items: center;
   position: relative;
@@ -178,21 +177,34 @@ const form = reactive({
     transform: translateY(-2000px);
   }
   10% {
-    transform: translateY(40px);
+    transform: translateY(-10px);
   }
   20% {
-    transform: translateY(-30px);
+    transform: translateY(-300px);
   }
   30% {
-    transform: translateY(20px);
+    transform: translateY(0px);
   }
   40% {
-    transform: translateY(-20px);
+    transform: translateY(-100px);
   }
-  60%,
-  70%,
-  100% {
+  50% {
     transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-30px);
+  }70% {
+    transform: translateY(0px);
+  }80% {
+    transform: translateY(-10px);
+  }90% {
+    transform: translateY(0px);
+  }
+  95% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(-0px);
   }
 }
 </style>

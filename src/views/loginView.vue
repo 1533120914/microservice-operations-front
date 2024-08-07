@@ -6,15 +6,7 @@
 
 <script setup>
 import Login from '../components/layout/login.vue';
-import { onMounted } from 'vue';
-import { useRouter } from 'vue-router'
 
-const router = useRouter()
-const go = () => router.push('/home')
-
-onMounted(() => {
-
-})
 </script>
 <style>
 
